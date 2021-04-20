@@ -162,7 +162,28 @@ in the workspace to enable remote access by the AutoML experiment running on a r
 
 ## Best Model Deployment
 *TODO*: Give an overview of the deployed model and instructions on how to query the endpoint with a sample input.
-As I choose Auto ML model for deployment considering Accuracy metric as main Key factor for prediction.Accuracy of Auto ML model is higher than Hyperdrive run.
+  #### Choosen Best model based on Accuracy metric 
+  1. Auto ML best model metrics
+  ```accuracy: ```
+  2. Hyperdrive best model metrics  
+  ```accuracy:```   
+  #### Instructions to query deployed model
+   ![Endpoint query]()
+   - Endpoint needs to receive the sample in the form of JSON, I have displayed the code and sample in the above screenshot for clarity.   
+   - For reference look for below query data and module needed to send query 
+    
+          - ```  import json
+                 data = {
+                       "data": [{'battery_power':842, 'blue':0, 'clock_speed':2.2, 'dual_sim':0, 'fc':1, 'four_g':0, 'int_memory':7, 'm_dep':0.6, 'mobile_wt':188, 'n_cores':2,                                    'pc':2, 'px_height':20, 'px_width':756, 'ram':2549, 'sc_h':9, 'sc_w':7, 'talk_time':19, 'three_g':0, 'touch_screen':0, 'wifi':1
+                                }]
+                       }
+                 #Convert to JSON string
+                 input_data = json.dumps(data)
+                 output = service.run(input_data)
+                 headers = {'Content-Type': 'application/json'}
+                 resp = requests.post(scoring_uri, input_data, headers=headers)
+                 print("prediction ", resp.text)```
+       
 #### 1. Model deployment successful 
 ![](https://github.com/AnshuTrivedi/Capstone-Project---Azure-Machine-Learning-Engineer/blob/main/Images/2.model_deploy.png)
 
