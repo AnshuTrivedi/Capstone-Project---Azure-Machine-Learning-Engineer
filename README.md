@@ -2,8 +2,20 @@
 
 # Table of contents
 1. [Project Overview ](https://github.com/AnshuTrivedi/Capstone-Project---Azure-Machine-Learning-Engineer/blob/main/README.md#project-overview)
-2. []()
-3. []()
+2. [Overview of project pipeline](https://github.com/AnshuTrivedi/Capstone-Project---Azure-Machine-Learning-Engineer#overview-of-project-pipeline)
+3. [Project Set Up and Installation](https://github.com/AnshuTrivedi/Capstone-Project---Azure-Machine-Learning-Engineer#project-set-up-and-installation)
+4. [Used Dataset](https://github.com/AnshuTrivedi/Capstone-Project---Azure-Machine-Learning-Engineer#used-dataset)
+    - [Dataset Overview](https://github.com/AnshuTrivedi/Capstone-Project---Azure-Machine-Learning-Engineer#dataset-overview)
+    - [Project Task](https://github.com/AnshuTrivedi/Capstone-Project---Azure-Machine-Learning-Engineer#project-task)
+    - [Dataset Access](https://github.com/AnshuTrivedi/Capstone-Project---Azure-Machine-Learning-Engineer#dataset-access)
+5. [Automated ML](https://github.com/AnshuTrivedi/Capstone-Project---Azure-Machine-Learning-Engineer#automated-ml)
+    - [Auto ML Experiment Results](https://github.com/AnshuTrivedi/Capstone-Project---Azure-Machine-Learning-Engineer#auto-ml-experiment-results)
+7. [Hyperparameter Tuning in Hyperdrive](https://github.com/AnshuTrivedi/Capstone-Project---Azure-Machine-Learning-Engineer#hyperparameter-tuning-in-hyperdrive)
+    - [Hyper drive experiment Results](https://github.com/AnshuTrivedi/Capstone-Project---Azure-Machine-Learning-Engineer#hyper-drive-experiment-results)   
+8. [Best Model Deployment](https://github.com/AnshuTrivedi/Capstone-Project---Azure-Machine-Learning-Engineer#best-model-deployment)</br>
+9. [Screen Recording](https://github.com/AnshuTrivedi/Capstone-Project---Azure-Machine-Learning-Engineer#screen-recording)</br>
+10. [Standout Suggestions](https://github.com/AnshuTrivedi/Capstone-Project---Azure-Machine-Learning-Engineer#standout-suggestions)</br>
+11. [References ](https://github.com/AnshuTrivedi/Capstone-Project---Azure-Machine-Learning-Engineer#references)</br>
 
 # Project Overview 
 **Problem**:
@@ -145,7 +157,7 @@ in the workspace to enable remote access by the AutoML experiment running on a r
 #### Best model
 ![](https://github.com/AnshuTrivedi/Capstone-Project---Azure-Machine-Learning-Engineer/blob/main/Images/3.hd_best_run.png)
 
-### Hyperdrive registered model
+#### Hyperdrive registered model
 ![](https://github.com/AnshuTrivedi/Capstone-Project---Azure-Machine-Learning-Engineer/blob/main/Images/3.hd_reg_model.png)
 
 ## Best Model Deployment
