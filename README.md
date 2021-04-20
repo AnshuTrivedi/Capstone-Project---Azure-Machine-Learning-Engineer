@@ -1,14 +1,26 @@
 # Capstone Project - Azure Machine Learning Engineer 
 Mobile Price range Classification
 # Project Overview 
-In this project, I created two models: one using Automated ML (denoted as AutoML from now on) and one customized model whose hyperparameters are tuned using HyperDrive. I then compared the performance of both the models and deploy the best performing model.
-
+**Problem**:
+- My client want to estimate price of mobiles his company manufacture
+ - **Other motivation**
+    - To give tough fight to big companies like Apple,Samsung etc.
+    - In this competitive mobile phone market mobile price cannot be simply assume. Data helps in more informed decisions. 
+    
+ **Solution** :
+ - I have created and deployed mobile price range classifier model using Azure ML Studio which estimates mobile price for client who have started his own mobile company.
+ - ML classifier model estimates price of mobiles his company creates based on about 20 features of mobiles
+ - To solve this problem used sales data of mobile phones of various companies.
+ - Try to find out some relation between features of a mobile phone(eg:- RAM,Internal Memory etc) and its selling price.
+ - I created two models: one using Automated ML (denoted as AutoML from now on) and one customized model whose hyperparameters are tuned using HyperDrive. I then compared the p    performance of both the models and deploy the best performing model
+  
+### Overview of project pipeline
 ![](https://github.com/AnshuTrivedi/Capstone-Project---Azure-Machine-Learning-Engineer/blob/main/Images/1.project_overview.png)
 
 *TODO:* Write a short introduction to your project.
 This is the final project which is the Capstone in the Udacity Azure Machine Learning Engineer Nanodegree. 
 This project requires the expertise in the Azure Cloud Machine learning technologies. This acts as the final step in practically
-implementing the knowledge that I have gathered from the nanodegree. I created and deployed mobile price range classifier model.
+implementing the knowledge that I have gathered from the nanodegree.
 
 ## Project Set Up and Installation
 1. This project requires the creation on compute instance to run Jupyter Notebook & compute cluster to run the experiments.
@@ -23,10 +35,7 @@ Name: mobile_sales_data.csv
 *TODO*: Explain about the data you are using and where you got it from.
 I have downloaded the dataset from [kaggle](https://www.kaggle.com/iabhishekofficial/mobile-price-classification).
 
-  **context:**
-  Bob has started his own mobile company. He wants to give tough fight to big companies like Apple,Samsung etc.
-  He does not know how to estimate price of mobiles his company creates. In this competitive mobile phone market you cannot simply assume things. To solve this problem he         collects sales data of mobile phones of various companies.
-  Bob wants to find out some relation between features of a mobile phone(eg:- RAM,Internal Memory etc) and its selling price. But he is not so good at Machine Learning. So I       helped him to solve this problem by creating ML classifier model.
+  
 ![dataset](https://github.com/AnshuTrivedi/Capstone-Project---Azure-Machine-Learning-Engineer/blob/main/Images/1.reg_data.png)
 ### Task
 *TODO*: Explain the task you are going to be solving with this dataset and the features you will be using for it.
@@ -84,12 +93,22 @@ in the workspace to enable remote access by the AutoML experiment running on a r
     "n_cross_validations": 4}
 
     # TODO: Put your automl config here
-   automl_config = AutoMLConfig(compute_target = compute_target,
-                             task='classification',
-                             debug_log='automated_ml_errors.log',
-                             training_data=mobile_sales_data,
-                             label_column_name="price_range",
-                             **automl_settings)```
+     automl_config = AutoMLConfig(compute_target = compute_target,
+                              task='classification',
+                              debug_log='automated_ml_errors.log',
+                              training_data=mobile_sales_data,
+                              label_column_name="price_range",
+                              **automl_settings)```
+ 4. AutoML experiment settings and configuration 
+   - **"iteration_timeout_minutes":** 7, time for each iteration is taken considering data size
+   - **experiment_timeout_minutes: 25,**  model is able to train and optimize within 25 minute due to very small size dataset i.e 0.11 mb.
+   - **"featurization": 'auto',**  By using auto, the experiment can preprocess the input data (handling missing data, converting text to numeric, etc.)
+   - **n_cross_validations": 4**,  Generally it is best to take 3-5 cross validation based on various tutorials and Data camp course,it gives best results, 
+                               visit [SKLEARN](https://scikit-learn.org/stable/modules/cross_validation.html)  for better understanding.
+   - **primary_metric": 'accuracy'**,    considering client requirement, Accuracy is more important. Less accurate or bad classifier can make huge loss to client. 
+   - **compute_target = compute_target,** compute_target is used to train model that is all processing on cloud compute i named compute as capston-compute
+   - **task='classification',**          used task as classification as I have to classify price ranges for mobiles based on no of features
+   - **label_column_name="price_range"**,  price_range is reponse variable which i have to estimate
 
 ### Results
 #### 1. Auto ML experiment in running state details
@@ -128,7 +147,7 @@ As I choose Auto ML model for deployment considering Accuracy metric as main Key
 #### 1. Model deployment successful 
 ![](https://github.com/AnshuTrivedi/Capstone-Project---Azure-Machine-Learning-Engineer/blob/main/Images/2.model_deploy.png)
 
-#### 2. Model prediction on sending request
+#### 2. Model prediction and  sending request
 ![](https://github.com/AnshuTrivedi/Capstone-Project---Azure-Machine-Learning-Engineer/blob/main/Images/2.prediction.png)
 
 #### 3.Model prediction service logs
