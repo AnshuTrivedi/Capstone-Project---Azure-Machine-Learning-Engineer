@@ -1,5 +1,10 @@
-# Capstone Project - Azure Machine Learning Engineer 
-Mobile Price range Classification
+# Capstone Project - Azure Machine Learning Engineer (Mobile Price range Classification)
+
+# Table of contents
+1. [Project Overview ](https://github.com/AnshuTrivedi/Capstone-Project---Azure-Machine-Learning-Engineer/blob/main/README.md#project-overview)
+2. []()
+3. []()
+
 # Project Overview 
 **Problem**:
 - My client want to estimate price of mobiles his company manufacture
@@ -14,7 +19,7 @@ Mobile Price range Classification
  - Try to find out some relation between features of a mobile phone(eg:- RAM,Internal Memory etc) and its selling price.
  - I created two models: one using Automated ML (denoted as AutoML from now on) and one customized model whose hyperparameters are tuned using HyperDrive. I then compared the p    performance of both the models and deploy the best performing model
   
-### Overview of project pipeline
+## Overview of project pipeline
 ![](https://github.com/AnshuTrivedi/Capstone-Project---Azure-Machine-Learning-Engineer/blob/main/Images/1.project_overview.png)
 
 *TODO:* Write a short introduction to your project.
