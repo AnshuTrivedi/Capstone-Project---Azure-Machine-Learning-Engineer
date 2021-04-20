@@ -28,16 +28,16 @@ implementing the knowledge that I have gathered from the nanodegree.
 3. Two experiments were run using Auto-ML & HyperDrive
 4. The best model that gave good metrics was deployed and consumed.
 
-## Dataset
+## Used Dataset
 Name: mobile_sales_data.csv
 
-### Overview
+### Dataset Overview
 *TODO*: Explain about the data you are using and where you got it from.
 I have downloaded the dataset from [kaggle](https://www.kaggle.com/iabhishekofficial/mobile-price-classification).
 
   
 ![dataset](https://github.com/AnshuTrivedi/Capstone-Project---Azure-Machine-Learning-Engineer/blob/main/Images/1.reg_data.png)
-### Task
+### Project Task
 *TODO*: Explain the task you are going to be solving with this dataset and the features you will be using for it.
 Task: This is a classification problem where in I'm trying to classify price of mobile in specific range. The target variable is "price_range"
 
@@ -65,7 +65,7 @@ Twenty (20) mobile  features:
 **wifi** : Has wifi or not</br>
 price_range : response variable
 
-### Access
+### Dataset Access
 *TODO*: Explain how you are accessing the data in your workspace.
 The dataset was downloaded from Kaggle where I have staged it for direct download to the AML workspace using SDK.
 
@@ -110,7 +110,7 @@ in the workspace to enable remote access by the AutoML experiment running on a r
    - **task='classification',**          used task as classification as I have to classify price ranges for mobiles based on no of features
    - **label_column_name="price_range"**,  price_range is reponse variable which i have to estimate
 
-### Results
+### Auto ML Experiment Results
 #### 1. Auto ML experiment in running state details
 ![](https://github.com/AnshuTrivedi/Capstone-Project---Azure-Machine-Learning-Engineer/blob/main/Images/2.auto_running.png)
 #### 2. Auto ML run completed
@@ -119,14 +119,15 @@ in the workspace to enable remote access by the AutoML experiment running on a r
 ![](https://github.com/AnshuTrivedi/Capstone-Project---Azure-Machine-Learning-Engineer/blob/main/Images/2.auto_algos.png)
 #### 3. Best model and metrices
 ![](https://github.com/AnshuTrivedi/Capstone-Project---Azure-Machine-Learning-Engineer/blob/main/Images/2.auto_run_best_met.png)
-## Hyperparameter Tuning
+
+## Hyperparameter Tuning in Hyperdrive
 1. I have used LogisticRegression for this experiment since it is easily understandable and works well with Classification problems.
 2. I have used RandomParameterSampling with 3 parameters for this model: ```RandomParameterSampling({'C': choice(0.01, 0.1, 1, 10, 100),
                                         'max_iter' : choice(50,75,100,125,150,175,200),
                                         'solver' : choice('liblinear','sag','lbfgs', 'saga')})```
 3. I have used the primary metric as "Accuracy" for this problem and I have tried to maximize it.
 
-### Results
+### Hyper drive experiment Results
 *TODO*: What are the results you got with your model? What were the parameters of the model? How could you have improved it?
 1. The best performing accuracy was 84%
 2. The parameters of the model are: ['--C', '100', '--max_iter', '200', '--solver', 'liblinear']
@@ -141,7 +142,8 @@ in the workspace to enable remote access by the AutoML experiment running on a r
 
 ### Hyperdrive registered model
 ![](https://github.com/AnshuTrivedi/Capstone-Project---Azure-Machine-Learning-Engineer/blob/main/Images/3.hd_reg_model.png)
-## Model Deployment
+
+## Best Model Deployment
 *TODO*: Give an overview of the deployed model and instructions on how to query the endpoint with a sample input.
 As I choose Auto ML model for deployment considering Accuracy metric as main Key factor for prediction.Accuracy of Auto ML model is higher than Hyperdrive run.
 #### 1. Model deployment successful 
